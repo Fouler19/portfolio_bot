@@ -64,6 +64,17 @@ def cancel(message):
         "❌ Отменено\nℹ️ /info",
         reply_markup=hideBoard
     )
+@bot.message_handler(commands=['set_status'])
+def set_status(message):
+    db.update_project_status(1, "Разработан")
+    bot.send_message(
+        message.chat.id,
+        "✅ Статус проекта обновлён: Разработан"
+    )
+    
+   
+    
+    
 
 
 print("Bot started")
